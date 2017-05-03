@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>URL shortener</title>
+<meta name="description" content="A handy little URL shortener developed by kdex that supports nice Unicode URLs.">
+<meta name="author" content="kdex">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="assets/css/index.css">
+<shortener-body>
+	<shortener-box>
+		<shortener-row><h3>URL shortener</h3></shortener-row>
+		<shortener-row>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input required autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="mdl-textfield__input" type="url" id="url">
+				<label class="mdl-textfield__label" for="url">URL</label>
+				<shortener-status></shortener-status>
+			</div>
+		</shortener-row>
+		<shortener-row>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" pattern="@KEY_REGEX" class="mdl-textfield__input" type="text" id="custom-id">
+				<label class="mdl-textfield__label" for="custom-id">Custom ID (optional)</label>
+				<shortener-status></shortener-status>
+			</div>
+		</shortener-row>
+		<shortener-row>
+			<button shorten disabled class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Shorten</button>
+		</shortener-row>
+		<shortener-row>
+			<div class="mdl-textfield mdl-js-textfield textfield-demo">
+				<input readonly="true" class="mdl-textfield__input" type="text" id="result">
+				<shortener-status></shortener-status>
+			</div>
+			<button copy disabled class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+				<i class="material-icons">assignment</i>
+			</button>
+		</shortener-row>
+	</shortener-box>
+</shortener-body>
+<script src="assets/js/script.js"></script>

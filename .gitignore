@@ -2,5 +2,5 @@
 .server.config.js
 assets
 dist
-index.html
+/index.html
 node_modules
