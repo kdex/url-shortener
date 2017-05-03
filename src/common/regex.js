@@ -1,7 +1,4 @@
 import escape from "regexp.escape";
-//let config = JSON.parse(require("fs").readFileSync("./.tmp/public.json", "utf-8")).regex;
-// let config = require("./.tmp/public.json").regex;
-// import { regex as config } from "/.tmp/public.json";
 const config = {
 	noUnsafeCharacters: true,
 	noLeadingSpaces: true,

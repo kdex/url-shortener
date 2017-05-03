@@ -79,7 +79,7 @@ export function html() {
 		.pipe(gulp.dest("."));
 }
 export function fonts() {
-	return gulp.src("fonts.list")
+	return gulp.src("src/client/css/fonts.list")
 		.pipe(googleWebFonts())
 		.pipe(gulp.dest("assets/css"));
 }
