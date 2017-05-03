@@ -1,0 +1,6 @@
+.client.config.js
+.server.config.js
+assets
+dist
+index.html
+node_modules

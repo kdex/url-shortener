@@ -1,0 +1,15 @@
+{
+	"presets": [
+		["env", {
+			"targets": {
+				"node": true
+			}
+		}],
+		"stage-0"
+	],
+	"plugins": [
+		["module-resolver", {
+			"root": ["."]
+		}]
+	]
+}
