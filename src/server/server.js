@@ -1,4 +1,5 @@
 import Database from "./Database";
+import { err } from "print-log";
 import APIServer from "./APIServer";
 for (const event of ["unhandledRejection", "uncaughtException"]) {
 	process.on(event, e => {

@@ -49,19 +49,16 @@ export default class APIServer {
 			max: 60,
 			global: false
 		});
-		function generateKey() {
+		const generateKey = () => {
 			return new Promise(async (resolve, reject) => {
-				let retry = true;
 				for (let i = 0; i < server.behavior.retries; ++i) {
-					key = tokens.generate(common.style.keys.length);
-					const entry = await this.db.findEntry({
-						shortName: key
-					});
+					const shortName = tokens.generate(common.style.keys.length);
+					const entry = await this.db.findEntry(shortName);
 					if (entry) {
 						continue;
 					}
 					else {
-						resolve(key);
+						resolve(shortName);
 						return;
 					}
 				}
@@ -74,7 +71,7 @@ export default class APIServer {
 		app.use("/assets", express.static("assets"));
 		app.post(`/${common.urls.prefix}/create`, limit, async (request, response) => {
 			const { body } = request;
-			const key = decodeURIComponent(body.key);
+			let shortName = decodeURIComponent(body.shortName);
 			const { url } = body;
 			let errorCode = null;
 			try {
@@ -83,16 +80,16 @@ export default class APIServer {
 					errorCode = "BANNED_URL";
 				}
 				else {
-					if (!key) {
+					if (!shortName) {
 						try {
-							key = await generateKey();
+							shortName = await generateKey();
 						}
 						catch (e) {
 							errorCode = "LOW_ENTROPY";
 						}
 					}
-					/* Key syntax */
-					if (!re.regex.test(key)) {
+					/* Short name syntax */
+					if (!re.regex.test(shortName)) {
 						errorCode = "INVALID_KEY";
 					}
 					/* URL syntax */
@@ -102,7 +99,7 @@ export default class APIServer {
 					if (!errorCode) {
 						await this.db.createEntry({
 							url,
-							shortName: key
+							shortName
 						});
 					}
 				}
@@ -118,7 +115,7 @@ export default class APIServer {
 				}
 				else {
 					response.send({
-						key
+						shortName
 					});
 				}
 			}

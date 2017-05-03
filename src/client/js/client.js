@@ -26,7 +26,7 @@ import re from "../../common/regex";
 	const URL_COPIED = "URL copied to clipboard!";
 	function sendRequest() {
 		const data = {
-			key: encodeURIComponent(customID.value),
+			shortName: encodeURIComponent(customID.value),
 			url: url.value
 		};
 		if (url.validity.valid && customID.validity.valid) {
@@ -60,7 +60,7 @@ import re from "../../common/regex";
 						status.innerText = text;
 					}
 					else {
-						result.value = document.location.href + decodeURIComponent(response.key);
+						result.value = document.location.href + decodeURIComponent(response.shortName);
 						result.parentElement.parentElement.style.opacity = 1;
 						setButton(copyButton, true);
 						result.select();
