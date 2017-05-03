@@ -5,8 +5,7 @@ const defaultConfig = {
 	common: {
 		connection: {
 			host: "localhost",
-			path: "socket/api",
-			port: 4050
+			path: "socket/api"
 		},
 		style: {
 			keys: {
