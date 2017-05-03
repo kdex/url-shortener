@@ -12,7 +12,7 @@
     "kdex.de"
   ],
   "author": "kdex",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "dependencies": {
     "body-parser": "^1.17.1",
     "deep-assign": "^2.0.0",
