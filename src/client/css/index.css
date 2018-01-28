@@ -1,5 +1,6 @@
 @import "material-design-lite/material.min.css";
-@import "../../../assets/css/fonts.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 :root {
 	--input-font-size: 1.5em;
 	--input-label-hover-font-size: 1.1em;

@@ -17,7 +17,6 @@ import cssImport from "postcss-import";
 import replace from "gulp-replace";
 import re from "src/common/regex.js";
 import htmlMin from "gulp-htmlmin";
-import googleWebFonts from "gulp-google-webfonts";
 let finishActivity;
 /* nodemon doesn't exit properly */
 process.once("SIGINT", () => {
@@ -78,14 +77,8 @@ export function html() {
 		}))
 		.pipe(gulp.dest("."));
 }
-export function fonts() {
-	return gulp.src("src/client/css/fonts.list")
-		.pipe(googleWebFonts())
-		.pipe(gulp.dest("assets/css"));
-}
 export default gulp.series(
 	split,
-	fonts,
 	gulp.parallel(
 		js,
 		css,
