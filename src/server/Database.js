@@ -1,5 +1,5 @@
 import createEntry from "./models/Entry";
-import Sequelize, { TEXT, DATE } from "sequelize";
+import Sequelize, { TEXT, DATE, Op } from "sequelize";
 import config from "/.server.config";
 import pgTools from "pgtools";
 import { log, err, warn, debug } from "print-log";
@@ -45,7 +45,8 @@ export default class Database {
 		await createDatabase();
 		this.connection = new Sequelize(config.psql.database, config.psql.user, null, {
 			dialect: "postgres",
-			logging: log
+			logging: log,
+			operatorsAliases: false
 		});
 		this.Entry = createEntry(this.connection);
 		try {
